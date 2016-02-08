@@ -12,7 +12,7 @@ import com.dylan.demoneer.Demoneer;
  * Created by Dylan on 2/6/2016.
  */
 public abstract class Entity extends Actor {
-    private TextureRegion textureRegion;
+    protected TextureRegion textureRegion;
     protected int spriteWidth;
     protected int spriteHeight;
     private int frameX, frameY;
@@ -48,9 +48,9 @@ public abstract class Entity extends Actor {
         float nextY = getY() + velY;
         boundingBox.setX(nextX);
         boundingBox.setY(nextY);
-        boolean invalid = false;
-        double playerCellX = Math.floor((nextX + spriteWidth / 2) / (obstructions.getTileWidth() * Demoneer.MAP_SCALE));
-        double playerCellY = Math.floor((nextY + spriteHeight / 2) / (obstructions.getTileHeight() * Demoneer.MAP_SCALE));
+//        boolean invalid = false;
+//        double playerCellX = Math.floor((nextX + spriteWidth / 2) / (obstructions.getTileWidth() * Demoneer.MAP_SCALE));
+//        double playerCellY = Math.floor((nextY + spriteHeight / 2) / (obstructions.getTileHeight() * Demoneer.MAP_SCALE));
      /*   for (double x = -1; x <= 1; x++) {
             for (double y = -1; y <= 1; y++) {
                 double cellX =  Math.floor((nextX + x +  spriteWidth / 2) / (obstructions.getTileHeight() * Demoneer.MAP_SCALE));

@@ -44,11 +44,13 @@ public class Demoneer extends ApplicationAdapter {
 //        camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		player = new EntityPlayer(stage.getCamera());
 		player.setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+
+		EntitySnake snake = new EntitySnake();
+		snake.setX(player.getX() + 100);
+		snake.setY(player.getY());
+
+		stage.addActor(snake);
 		stage.addActor(player);
-		EntitySnake skeleton = new EntitySnake();
-		skeleton.setX(player.getX() + 100);
-		skeleton.setY(player.getY());
-		stage.addActor(skeleton);
 	}
 
 	@Override

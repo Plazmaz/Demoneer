@@ -36,17 +36,17 @@ public class BehaviorSeekPlayer extends Behavior {
         }
         if(iter.hasNext()) {
             TileNode next = (TileNode) iter.next();
-            double xDiff = (next.getX() - creature.getGridX()) * Demoneer.TILE_SIZE;
-            double yDiff = (next.getY() - creature.getGridY()) * Demoneer.TILE_SIZE;
+            double xDiff = (next.getX() * Demoneer.TILE_SIZE * Demoneer.MAP_SCALE) - creature.getX();
+            double yDiff = (next.getY() * Demoneer.TILE_SIZE * Demoneer.MAP_SCALE) - creature.getY();
             if(xDiff < 0) {
-                creature.setVelX(-creature.getSpeed());
+                creature.setVelX((float) Math.max(xDiff, -creature.getSpeed()));
             } else if(xDiff > 0) {
-                creature.setVelX(creature.getSpeed());
+                creature.setVelX((float) Math.min(xDiff, creature.getSpeed()));
             }
             if(yDiff < 0) {
-                creature.setVelY(-creature.getSpeed());
+                creature.setVelY((float) Math.max(yDiff, -creature.getSpeed()));
             } else if(yDiff > 0){
-                creature.setVelY(creature.getSpeed());
+                creature.setVelY((float) Math.min(yDiff, creature.getSpeed()));
             }
         }
     }

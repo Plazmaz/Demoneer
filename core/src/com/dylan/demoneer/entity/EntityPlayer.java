@@ -22,29 +22,33 @@ public class EntityPlayer extends EntityLiving {
     public void act(float delta) {
         super.act(delta);
         boolean animate = false;
-        if(Gdx.input.isKeyPressed(Input.Keys.W)) {
-            setFrameY(0);
-            velY += speed;
+        if(!Gdx.input.isTouched()) {
+            if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+                setFrameY(0);
+                velY += speed;
 //            camera.position.y += speed;
-            animate = true;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.A)) {
-            setFrameY(1);
-            velX -= speed;
+                animate = true;
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.A)) {
+                setFrameY(1);
+                velX -= speed;
 //            camera.position.x -= speed;
-            animate = true;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.S)) {
-            setFrameY(2);
-            velY -= speed;
+                animate = true;
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.S)) {
+                setFrameY(2);
+                velY -= speed;
 //            camera.position.y -= speed;
-            animate = true;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.D)) {
-            setFrameY(3);
+                animate = true;
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.D)) {
+                setFrameY(3);
 //            camera.position.x += speed;
-            velX += speed;
-            animate = true;
+                velX += speed;
+                animate = true;
+            }
+        } else {
+
         }
 //        setX(camera.position.x);
 //        setY(camera.position.y);
